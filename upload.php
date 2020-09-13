@@ -49,6 +49,7 @@ if(isset($_POST['submit'])){
         $unq = session_id();
     }
 
+    # rename file uploaded and replace special characters with underscores
     $file_name = $unq . '_' . time() . '_' . str_replace(array('!', "@", '#', '$', '%', '^', '&', ' ', '*', '(', ')', ':', ';', ',', '?', '/'. '\\', '~', '`', '-'), '_', strtolower($file_name));
 
     if(move_uploaded_file($tmp_file, 'uploads/'. $file_name)){
